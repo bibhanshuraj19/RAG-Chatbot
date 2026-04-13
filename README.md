@@ -145,8 +145,3 @@ RAG-Chatbot/
 6. **Retrieve** — On each question, the top 5 most relevant chunks are fetched
 7. **Generate** — GPT-3.5 Turbo synthesizes an answer using the retrieved context
 8. **Cite** — The response includes references to the source documents and pages
-
-## License
-
-MIT
-# RAG-Chatbot

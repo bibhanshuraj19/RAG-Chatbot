@@ -16,23 +16,23 @@ A retrieval-augmented generation chatbot that lets you upload academic documents
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │                    Next.js Frontend                          │
-│  ┌──────────┐  ┌──────────────┐  ┌────────────────────┐     │
-│  │ Sidebar   │  │ Chat Window  │  │ Document Panel     │     │
-│  │ (sessions)│  │ (messages)   │  │ (uploaded files)   │     │
-│  └──────────┘  └──────────────┘  └────────────────────┘     │
+│  ┌──────────┐  ┌──────────────┐  ┌────────────────────┐      │
+│  │ Sidebar  │  │ Chat Window  │  │ Document Panel     │      │
+│  │(sessions)│  │ (messages)   │  │ (uploaded files)   │      │
+│  └──────────┘  └──────────────┘  └────────────────────┘      │
 └──────────────────────┬───────────────────────────────────────┘
                        │ HTTP (REST)
 ┌──────────────────────▼───────────────────────────────────────┐
-│                   FastAPI Backend                             │
+│                   FastAPI Backend                            │
 │                                                              │
-│  ┌─────────────┐  ┌───────────────┐  ┌──────────────────┐   │
-│  │  Ingestion   │  │  RAG Chain    │  │ Claim Validator  │   │
-│  │  (PyPDF2 +   │  │  (LangChain + │  │ (verify claims   │   │
-│  │   chunking)  │  │   memory)     │  │  + fallback)     │   │
-│  └──────┬──────┘  └───────┬───────┘  └────────┬─────────┘   │
-│         │                 │                    │              │
-│         └────────┬────────┘────────────────────┘              │
-│                  ▼                                            │
+│  ┌─────────────┐  ┌───────────────┐   ┌──────────────────┐   │
+│  │  Ingestion  │  │  RAG Chain    │   │ Claim Validator  │   │
+│  │  (PyPDF2 +  │  │  (LangChain + │   │ (verify claims   │   │
+│  │   chunking) │  │   memory)     │   │  + fallback)     │   │
+│  └──────┬──────┘  └───────┬───────┘   └────────┬─────────┘   │
+│         │                 │                    │             │
+│         └────────┬────────┘────────────────────┘             │
+│                  ▼                                           │
 │         ┌──────────────┐                                     │
 │         │ FAISS Index  │  (in-memory, per session)           │
 │         └──────────────┘                                     │
